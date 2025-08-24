@@ -1,2 +1,2 @@
-# n-id.me
-NOSTR Identification
+# npuppy.me
+NOSTR Address
