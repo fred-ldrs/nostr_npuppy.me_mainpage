@@ -24,12 +24,43 @@ This service provides an easy way for NOSTR users to convert their complex npub 
 - DNS integration for proper NOSTR address resolution
 - OTP code: valid for Max 15 minute, 6 digit code 
 
+### User Authentication & Session Management
+- **Authentication Method**: Email OTP (One-Time Password) system
+  - 6-digit code sent to user's email
+  - OTP valid for maximum 15 minutes
+- **Session Duration**: 10 minutes after successful OTP verification
+- **Account Limits**: Maximum 10 @npuppy.me addresses per registered email
+
+### Address Management
+- **Address Ownership**: Users can register and manage their own @npuppy.me addresses
+- **Key Updates**: Users can update the npub key associated with their existing @npuppy.me address
+- **Address Restrictions**:
+  - No constitutionally prohibited names or hate speech
+  - Subject to moderation for inappropriate content
+
+### Address Format Guidelines
+- **Character Support**: Standard alphanumeric characters (a-z, 0-9)
+- **Special Characters**: Limited set including periods (.), underscores (_), and hyphens (-)
+- **Length**: Minimum 3, maximum 30 characters
+
+### Donation System
+- **Placement**: Subtle donation button placed in the footer of the website
+- **Payment Processing**: Integration with OpenNode API for Lightning Network payments
+- **User Experience**:
+  - Users can freely choose donation amount
+  - No account required for donations
+  - No tracking or special rewards for donors
+- **Technical Integration**:
+  - Direct OpenNode API integration
+  - Minimal frontend implementation (button only)
+  - Payment processing handled entirely by OpenNode
+
 ### Non-Functional Requirements
 - Security: Secure handling of user data and NOSTR keys
 - Performance: Fast address lookup and resolution
 - Scalability: Support for growing user base
 - Reliability: Consistent service availability
-- the service is free for the user. but the user is free to donate 
+- The service is free for the user. but the user is free to donate
 
 ## Development Roadmap
 
@@ -55,4 +86,6 @@ This service provides an easy way for NOSTR users to convert their complex npub 
 
 ## Getting Started
 
-Development instructions coming soon..."
+Development instructions coming soon...
+
+Last updated: 2025-08-25 12:46:04 by fred-ldrs
