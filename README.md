@@ -28,6 +28,7 @@ This service provides an easy way for NOSTR users to convert their complex npub 
 - Performance: Fast address lookup and resolution
 - Scalability: Support for growing user base
 - Reliability: Consistent service availability
+- the service is free for the user. but the user is free to donate 
 
 ## Development Roadmap
 
