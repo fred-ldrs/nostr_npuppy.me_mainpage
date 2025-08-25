@@ -6,81 +6,101 @@ A web application that allows users to create friendly @npuppy.me addresses from
 
 This service provides an easy way for NOSTR users to convert their complex npub keys into memorable, user-friendly @npuppy.me addresses, similar to how my.nostr.com operates.
 
-## Requirements
+## Core Features
 
-### Technical Requirements
-- **Backend**: Python with Flask/FastAPI
+- Convert complex NOSTR npub keys to memorable @npuppy.me addresses
+- Manage multiple addresses through a user dashboard
+- Secure authentication via email OTP (no password storage)
+- Free service with optional donations via Lightning Network
+
+## Technical Architecture
+
+### Frontend
+- Dark-themed minimalist interface
+- Responsive design for mobile and desktop usage
+
+### Backend
+- **Framework**: Python with Flask/FastAPI
 - **Database**: MariaDB
-- **Authentication**: Email OTP (One-Time Password) system
-- **Design**: Dark-themed minimalist interface
-- **Infrastructure**: DNS configuration for npuppy.me domain
+- **DNS**: Configuration for npuppy.me domain using the NOSTR `.well-known` standard with `nostr.json` file and appropriate DNS settings
 
-### Functional Requirements
-- OTP
-  - User registration and authentication via email OTP (no password storage)
-  - User account / dashboard acess via email OTP (no password storage)
-  - OTP code: valid for maximum 15 minutes, 6-digit code 
-- Conversion of NOSTR npub keys to @npuppy.me addresses
-- User dashboard for managing multiple addresses
-- No Verification of npub ownership (Reason: would required that user put his nsec into the system - otherwise no possiblity for Verification of npub ownership)
-- DNS integration for proper NOSTR address resolution
+## User Management
 
-### User Authentication & Session Management
-- **Authentication Method**: Email OTP (One-Time Password) system
+### Authentication & Session
+- **Method**: Email OTP (One-Time Password)
   - 6-digit code sent to user's email
   - OTP valid for maximum 15 minutes
-- **Session Duration**: 10 minutes after successful OTP verification
+- **Session Duration**: 10 minutes after successful verification
 - **Account Limits**: Maximum 10 @npuppy.me addresses per registered email
 
 ### Address Management
-- **Address Ownership**: Users can register and manage their own @npuppy.me addresses
-- **Key Updates**: Users can update the npub key associated with their existing @npuppy.me address
-- **Address Restrictions**:
-  - No constitutionally prohibited names or hate speech
-  - Subject to moderation for inappropriate content
+- Register and manage @npuppy.me addresses
+- Update npub keys associated with existing addresses
+- Self-service address management via user dashboard
+- **Allocation Policy**: First come, first served basis
 
-### Address Format Guidelines
-- **Character Support**: Standard alphanumeric characters (a-z, 0-9)
-- **Special Characters**: Limited set including periods (.), underscores (_), and hyphens (-)
-- **Length**: Minimum 3, maximum 30 characters
+## Address Policies
 
-### Donation System
-- **Placement**: Subtle donation button placed in the footer of the website
-- **Payment Processing**: Integration with OpenNode API for Lightning Network payments
+### Format Guidelines
+- **Characters Allowed**: Alphanumeric (a-z, 0-9)
+- **Special Characters**: Periods (.), underscores (_), and hyphens (-)
+- **Length**: 3-30 characters
+
+### Content Restrictions
+- No constitutionally prohibited names or hate speech
+- Subject to moderation using existing public blocklists for inappropriate content
+- No verification of npub ownership required
+
+## Donation System
+
+- **Implementation**: Subtle donation button in website footer
+- **Payment Processing**: OpenNode API for Lightning Network payments (refer to OpenNode documentation)
 - **User Experience**:
-  - Users can freely choose donation amount
+  - User-defined donation amounts
   - No account required for donations
-  - No tracking or special rewards for donors
-- **Technical Integration**:
-  - Direct OpenNode API integration
-  - Minimal frontend implementation (button only)
-  - Payment processing handled entirely by OpenNode
+  - No special rewards or tracking for donors
 
-### Non-Functional Requirements
-- Security: Secure handling of user data and NOSTR keys
-- Performance: Fast address lookup and resolution
-- Scalability: Support for growing user base
-- Reliability: Consistent service availability
-- The service is free for the user. but the user is free to donate
+## Non-Functional Requirements
+
+### Security
+- Encrypted storage of email addresses
+- No storage of additional personal data
+- No password storage (OTP only)
+- Protection against common web vulnerabilities
+
+### Rate Limiting
+- Maximum 5 OTP requests per email address per hour
+- Maximum 20 address registrations per account per day
+- IP-based rate limiting for unauthenticated requests (100 per hour)
+
+### Performance & Reliability
+- Fast address lookup and resolution
+- Consistent service availability
+- Scalable architecture from launch with ability to add additional domain endings in future
+
+### Data Management
+- Source code version control via GitHub
+- Database backups implemented via standard backup procedures
+- No long-term storage of personal user data beyond encrypted email addresses
 
 ## Development Roadmap
 
-1. **Phase 1**: Basic setup and authentication
-   - Initial project structure
+1. **Phase 1**: Foundation
+   - Project structure setup
    - Database schema implementation
-   - OTP email authentication system
+   - OTP authentication system
 
-2. **Phase 2**: Core functionality
+2. **Phase 2**: Core Functionality
    - npub to @npuppy.me conversion logic
-   - User dashboard
+   - User dashboard implementation
    - Address management features
 
-3. **Phase 3**: Integration and deployment
-   - DNS configuration
+3. **Phase 3**: Deployment & Integration
+   - DNS configuration with .well-known implementation
    - NOSTR protocol integration
    - Production deployment
 
-4. **Phase 4**: Enhancements and additional features
+4. **Phase 4**: Enhancements
    - Performance optimizations
    - Additional user features
    - API for third-party integrations
@@ -89,4 +109,5 @@ This service provides an easy way for NOSTR users to convert their complex npub 
 
 Development instructions coming soon...
 
-Last updated: 2025-08-25 12:46:04 by fred-ldrs
+Last updated: 2025-08-25 13:14:13 by fred-ldrs
+```
