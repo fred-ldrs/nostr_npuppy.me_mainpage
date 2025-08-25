@@ -17,9 +17,10 @@ This service provides an easy way for NOSTR users to convert their complex npub 
 
 ### Functional Requirements
 - User registration and authentication via email OTP (no password storage)
+- User account acess via email OTP (no password storage)
 - Conversion of NOSTR npub keys to @npuppy.me addresses
 - User dashboard for managing multiple addresses
-- Verification of npub ownership
+- No Verification of npub ownership (Reason: would required that user put his nsec into the system - otherwise no possiblity for Verification of npub ownership)
 - DNS integration for proper NOSTR address resolution
 
 ### Non-Functional Requirements
