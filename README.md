@@ -16,13 +16,14 @@ This service provides an easy way for NOSTR users to convert their complex npub 
 - **Infrastructure**: DNS configuration for npuppy.me domain
 
 ### Functional Requirements
-- User registration and authentication via email OTP (no password storage)
-- User account / dashboard acess via email OTP (no password storage)
+- OTP
+  - User registration and authentication via email OTP (no password storage)
+  - User account / dashboard acess via email OTP (no password storage)
+  - OTP code: valid for maximum 15 minutes, 6-digit code 
 - Conversion of NOSTR npub keys to @npuppy.me addresses
 - User dashboard for managing multiple addresses
 - No Verification of npub ownership (Reason: would required that user put his nsec into the system - otherwise no possiblity for Verification of npub ownership)
 - DNS integration for proper NOSTR address resolution
-- OTP code: valid for Max 15 minute, 6 digit code 
 
 ### User Authentication & Session Management
 - **Authentication Method**: Email OTP (One-Time Password) system
