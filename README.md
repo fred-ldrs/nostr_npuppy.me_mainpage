@@ -22,6 +22,7 @@ This service provides an easy way for NOSTR users to convert their complex npub 
 - User dashboard for managing multiple addresses
 - No Verification of npub ownership (Reason: would required that user put his nsec into the system - otherwise no possiblity for Verification of npub ownership)
 - DNS integration for proper NOSTR address resolution
+- OTP code: valid for Max 15 minute, 6 digit code 
 
 ### Non-Functional Requirements
 - Security: Secure handling of user data and NOSTR keys
