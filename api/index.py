@@ -1,8 +1,12 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
+from mangum import Mangum
 
-from . import models, auth, address, config
+from api.models import models
+from api.auth import auth
+from api.address import address
+from api.config import config
 
 app = FastAPI(title="npuppy.me - NOSTR Address Service")
 
@@ -41,4 +45,4 @@ async def nostr_well_known():
     }
 
 # For Vercel serverless functions
-handler = app
+handler = Mangum(app)
