@@ -26,12 +26,20 @@ This service provides an easy way for NOSTR users to convert their complex npub 
 
 ## User Management
 
-### Authentication & Session
-- **Method**: Email OTP (One-Time Password)
-  - 6-digit code sent to user's email
-  - OTP valid for maximum 15 minutes
-- **Session Duration**: 10 minutes after successful verification
-- **Account Limits**: Maximum 10 @npuppy.me addresses per registered email
+### User Authentication & Session Management
+- ~~**Authentication Method**: Email OTP (One-Time Password) system~~
+  - ~~6-digit code sent to user's email~~
+  - ~~OTP valid for maximum 15 minutes~~
+- ~~Session Duration: 10 minutes after successful OTP verification~~
+- ~~Account Limits: Maximum 10 @npuppy.me addresses per registered email~~
+- - **Account Limits**: Maximum 10 @npuppy.me addresses per registered user
+
+**Aktualisierung:**  
+Statt des OTP-Verfahrens wird nun ein einfaches Authentifizierungssystem verwendet:
+- **Authentifizierung:** Nutzername und Passwort
+- Die Zugangsdaten werden ausschließlich als Hashwert gespeichert
+- Es werden keine personenbezogenen Daten wie E-Mail-Adressen gespeichert
+- Ziel: einfache, datensparsame Implementierung
 
 ### Address Management
 - Register and manage @npuppy.me addresses
