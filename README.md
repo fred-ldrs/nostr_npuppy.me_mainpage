@@ -69,6 +69,7 @@ Authentication now uses a simple username and password system:
 - Usernames must be unique and meet the address format guidelines.
 - Sensitive operations require user authentication.
 - Registration and login endpoints are rate-limited and protected against brute-force attacks.
+- **Account Recovery:** Initially, no password recovery mechanism will be implemented to maintain minimal data collection. Similar to my.nostr.com, users will be responsible for securely storing their passwords. This decision will be revisited in future phases if needed.
 
 ### Address Management
 
@@ -141,9 +142,10 @@ Authentication now uses a simple username and password system:
    - Performance optimizations
    - Additional user features
    - API for third-party integrations
+   - *Potential addition: Account recovery mechanism if deemed necessary*
 
 ## Getting Started
 
 Development instructions coming soon...
 
-Last updated: 2025-08-26 04:45:44 by fred-ldrs
+Last updated: 2025-08-26 05:00:48 by fred-ldrs
