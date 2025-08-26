@@ -6,6 +6,7 @@ passlib==1.7.4
 python-multipart==0.0.6
 bcrypt==4.0.1
 python-dotenv==1.0.0
+mangum==0.17.0
 # Add the following when you're ready to connect to a database
 # SQLAlchemy==2.0.23
 # databases==0.8.0
